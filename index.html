@@ -10,6 +10,7 @@
         <script defer src="https://pyscript.net/latest/pyscript.js"></script> 
     </head>
     <body style="background-color: black;">
+        <p style="color: white;">For a list of commands type: "Help"</p>
         <label for="command" style="color: white;">$</label>
         <input type="text" id="command" name="command" style="border: none; outline: none; background-color: black; color: white;"/>
         <button id="submit" type="submit" py-click="my_function()" style="background: transparent; border: none; font-size: 0;">Submit</button>
@@ -28,9 +29,8 @@
             }
         });
     </script>
-      
+
     <py-script>
-        import os
         def my_function():
             command = Element("command").element.value
             if command == "help" or command == "Help":

@@ -28,9 +28,9 @@
             }
         });
     </script>
-
-    
+      
     <py-script>
+        import os
         def my_function():
             command = Element("command").element.value
             if command == "help" or command == "Help":
@@ -43,8 +43,6 @@
                 print("Here is a link to my contact details:")
             else:
                 print("Command not recognised")
-
-
     </py-script>
     </body>
 </html>

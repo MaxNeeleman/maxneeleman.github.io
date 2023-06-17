@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+        <script defer src="https://pyscript.net/latest/pyscript.js"></script> 
+    </head>
+    <body style="background-color: black;">
+        <label for="command" style="color: white;">$</label>
+        <input type="text" id="command" name="command" style="border: none; outline: none; background-color: black; color: white;"/>
+        <button id="submit" type="submit" py-click="my_function()" style="background: transparent; border: none; font-size: 0;">Submit</button>
+        
+
+    <script>
+        var command = document.getElementById("command");
+        command.focus();
+        command.select();
+
+        command.addEventListener("keypress", function(event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                document.getElementById("submit").click();
+                command.value= '';
+            }
+        });
+    </script>
+
+    
+    <py-script>
+        def my_function():
+            command = Element("command").element.value
+            if command == "help" or command == "Help":
+                print("Here is a list of commands: Help, About, CV, Contact")
+            elif command == "about" or command == "About":
+                print("I am a python developer")
+            elif command == "cv" or command == "CV":
+                print("Here is a link to my CV:")
+            elif command == "contact" or command == "Contact":
+                print("Here is a link to my contact details:")
+            else:
+                print("Command not recognised")
+
+
+    </py-script>
+    </body>
+</html>

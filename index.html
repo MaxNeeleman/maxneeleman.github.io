@@ -6,43 +6,20 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-        <script defer src="https://pyscript.net/latest/pyscript.js"></script> 
-    </head>
-    <body style="background-color: black;">
-        <p style="color: white;">For a list of commands type: "Help"</p>
-        <label for="command" style="color: white;">$</label>
-        <input type="text" id="command" name="command" style="border: none; outline: none; background-color: black; color: white;"/>
-        <button id="submit" type="submit" py-click="my_function()" style="background: transparent; border: none; font-size: 0;">Submit</button>
+        <link rel="stylesheet" href="style.css" />
+        <script src="terminal.js" defer></script>
         
-
-    <script>
-        var command = document.getElementById("command");
-        command.focus();
-        command.select();
-
-        command.addEventListener("keypress", function(event) {
-            if (event.keyCode === 13) {
-                event.preventDefault();
-                document.getElementById("submit").click();
-                command.value= '';
-            }
-        });
-    </script>
-
-    <py-script>
-        def my_function():
-            command = Element("command").element.value
-            if command == "help" or command == "Help":
-                print("Here is a list of commands: Help, About, CV, Contact")
-            elif command == "about" or command == "About":
-                print("I am a python developer")
-            elif command == "cv" or command == "CV":
-                print("Here is a link to my CV:")
-            elif command == "contact" or command == "Contact":
-                print("Here is a link to my contact details:")
-            else:
-                print("Command not recognised")
-    </py-script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:wght@500&display=swap" rel="stylesheet"> 
+    </head>
+    <body>
+        <div id="terminal">
+            <p id="welcome-area">Welcome to my personal terminal-style website!<br>My name is Max Neeleman and i am currently learning to become a software developer.<br>Feel free to contact me by typing "contact" or see a list of all the commands by typing "help".</p>
+            <p id="output-area"></p>
+            <label for="command">/user/guest ></label>
+            <input type="text" id="command" name="command">
+            <button id="submit" type="submit">Submit</button>
+        </div>
     </body>
 </html>

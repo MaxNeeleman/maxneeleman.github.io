@@ -1,0 +1,37 @@
+/*
+Color Palette:
+    #222222 - Black
+    #22A39F - Teal
+    #F3AA60 - Orange
+*/
+
+body {
+    background-color: #222222;
+    font-family: 'Anton', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+
+button {
+    background: transparent; 
+    border: none; 
+    font-size: 0;
+}
+
+p {
+    color: #22A39F;
+}
+
+label {
+    color: #F3AA60;
+}
+
+input {
+    border: none; 
+    outline: none; 
+    background-color: #222222; 
+    color: #22A39F;
+    font-family: 'Anton', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    width: 90%;
+}

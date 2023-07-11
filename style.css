@@ -88,3 +88,13 @@ ul {
     color: #F4E0B9;
     outline: none;
   }
+
+  ::-moz-selection { /* Code for Firefox */
+    background: #435B66;
+  }
+  
+  ::selection {
+    background: #435B66;
+  }
+
+

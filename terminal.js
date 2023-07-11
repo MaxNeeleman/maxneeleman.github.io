@@ -100,11 +100,11 @@ function generateCV() {
   </ul>
   <h3>Experience</h3>
   <ul>
-    <li>Stock Clerk              @ Albert Heijn Almkerk          || 08-08-2015 -- 25-05-2019</li>
-    <li>Internship Information   @ Gemeente Altena    || 01-02-2020 -- 29-07-2020</li>
-    <li>Production Worker        @ The Dutch Nightcrawlers || 01-02-2021 -- 30-09-2021</li>
-    <li>Administrative Assistant @ Idea-X B.V.      || 07-02-2022 -- 07-09-2022</li>
-    <li>Production Worker        @ The Dutch Nightcrawlers || 12-09-2022 -- Current Date</li>
+    <li>Stock Clerk              @ Albert Heijn Almkerk     || 08-08-2015 -- 25-05-2019</li>
+    <li>Internship Information   @ Gemeente Altena          || 01-02-2020 -- 29-07-2020</li>
+    <li>Production Worker        @ The Dutch Nightcrawlers  || 01-02-2021 -- 30-09-2021</li>
+    <li>Administrative Assistant @ Idea-X B.V.              || 07-02-2022 -- 07-09-2022</li>
+    <li>Production Worker        @ The Dutch Nightcrawlers  || 12-09-2022 -- Current Date</li>
   </ul>
   <h3>Education</h3> 
   <ul>

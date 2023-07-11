@@ -62,8 +62,8 @@ function generateCV() {
   const cvContent = `
   <h1>Curriculum Vitae</h1>
   <h2>Max Neeleman</h2>
-  <h2>06-45669504</h2>
-  <h2>maxneeleman@hotmail.nl</h2>
+  <h3>06-45669504</h3>
+  <h3>maxneeleman@hotmail.nl</h3>
 
   <h3>Experience</h3>
   <ul>
@@ -85,6 +85,7 @@ function generateCV() {
     <li>HTML ★★★☆☆</li>
     <li>CSS ★★★☆☆</li>
     <li>JavaScript ★★★☆☆</li>
+    <li>Python ★★★☆☆</li>
     <li>Dutch & English ★★★★☆</li>
     <li>Microsoft Office ★★★★☆</li>
     <li>Drivers License B ★★★★★</li>

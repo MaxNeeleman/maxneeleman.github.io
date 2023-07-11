@@ -39,3 +39,25 @@ input {
 div {
     color: #22A39F;
 }
+
+ul {
+    list-style: none;
+    color: #F4E0B9;
+  }
+  
+  ul li::before {
+    content: "+ ";
+    color: #6D8B74;
+  }
+
+  h1 {
+    color: #F4E0B9;
+  }
+  
+  h2, h3, h4, h5, h6 {
+    color: #6D8B74;
+  }
+
+  div p {
+    color: #F4E0B9;
+  }

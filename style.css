@@ -54,6 +54,10 @@ ul {
     color: #F4E0B9;
   }
   
+  ul li {
+    margin: 5px 0;
+  }
+
   ul li::before {
     content: "+ ";
     color: #6D8B74;

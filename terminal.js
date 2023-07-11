@@ -62,6 +62,17 @@ function scrollToBottom() {
   outputArea.lastChild.scrollIntoView({ behavior: 'smooth' });
 }
 
+window.onload = function() {
+  commandLine.focus();
+};
+
+commandLine.addEventListener('keydown', function(event) {
+  if (event.key === 'Tab') {
+    event.preventDefault(); // Prevent the default tab behavior
+    commandLine.focus(); // Focus on the input field
+  }
+});
+
 function helpMessage() {
   const helpMessageContent = `
   <h1>Here is a list of commands!</h1>
@@ -80,11 +91,13 @@ function generateCV() {
   const cvContent = `
   <h1>Curriculum Vitae</h1>
   <h2>Max Neeleman</h2>
-  <h4>29-06-1999</h3>
-  <h4>Almkerk, The Netherlands</h3>
-  <h4>06-45669504</h3>
-  <h4>maxneeleman@hotmail.nl</h3>
-
+  <h3>Personal Information</h3>
+  <ul>
+    <li>29-06-1999</li>
+    <li>Almkerk, The Netherlands</li>
+    <li>06-45669504</li>
+    <li>maxneeleman@hotmail.nl</li>
+  </ul>
   <h3>Experience</h3>
   <ul>
     <li>Stock Clerk              @ Albert Heijn Almkerk          || 08-08-2015 -- 25-05-2019</li>
@@ -117,7 +130,7 @@ function generateCV() {
 
 function contactForm() {
   const contactFromContent = `
-  <form action="/">
+  <form action="" method="post">
     <h1>Contact Form</h1>
     <p>Feel free to contact me!</p>
     <h2>Work in Progress</h2>

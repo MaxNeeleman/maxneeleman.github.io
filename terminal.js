@@ -1,8 +1,8 @@
 const outputArea = document.getElementById('output-area');
-const commandLine = document.getElementById('command'); // Assuming 'command-line' is the ID of the input element
+const commandLine = document.getElementById('command');
 
 function executeCommand(userInput) {
-    const command = userInput.trim().toLowerCase(); // Remove leading/trailing whitespaces
+    const command = userInput.trim().toLowerCase(); // Remove leading/trailing whitespaces and convert to lowercase
   
     // Handle different commands based on their names
     if (command === 'help') {
@@ -11,9 +11,12 @@ function executeCommand(userInput) {
       clearTerminal(); // Call a function to clear the terminal
     } else if (command === 'welcome') {
       displayOutput("");
+    } else if (command === 'cv') {
+      const cv = generateCV();
+      displayOutput(cv);
     } else {
       displayOutput(`Command not found: ${command}`);
-    scrollToBottom();
+      scrollToBottom();
   }
 }
 
@@ -21,20 +24,20 @@ function executeCommand(userInput) {
     if (event.key === 'Enter') {
         const userInput = event.target.value;
         event.target.value = '';  // Clear the input field
-
         executeCommand(userInput);
         scrollToBottom();
     }
 });
 
+// Focus on the command line automatically, this
 setInterval(function() {
   commandLine.focus();
 }, 100);
 
 function displayOutput(output) {
     // Create a new paragraph element to display the output
-    const outputElement = document.createElement('p');
-    outputElement.textContent = output;
+    const outputElement = document.createElement('div');
+    outputElement.innerHTML = output;
   
     // Append the output element to the output area
     outputArea.appendChild(outputElement);
@@ -53,4 +56,40 @@ function displayOutput(output) {
 
 function scrollToBottom() {
   outputArea.lastChild.scrollIntoView({ behavior: 'smooth' });
+}
+
+function generateCV() {
+  const cvContent = `
+  <h1>Curriculum Vitae</h1>
+  <h2>Max Neeleman</h2>
+  <h2>06-45669504</h2>
+  <h2>maxneeleman@hotmail.nl</h2>
+
+  <h3>Experience</h3>
+  <ul>
+    <li>Stock Clerk @ Albert Heijn Almkerk || 08-08-2015 -- 25-05-2019</li>
+    <li>Internship Information @ Gemeente Altena || 01-02-2020 -- 29-07-2020</li>
+    <li>Production Worker @ The Dutch Nightcrawlers || 01-02-2021 -- 30-09-2021</li>
+    <li>Administrative Assistant @ Idea-X B.V. || 07-02-2022 -- 07-09-2022</li>
+    <li>Production Worker @ The Dutch Nightcrawlers || 12-09-2022 -- Current Date</li>
+  </ul>
+  <h3>Education</h3> 
+  <ul>
+    <li>HAVO @ Altena College || 2011 -- 2016 || Diploma Acquired</li>
+    <li>Business IT & Management @ Avans University of Science Breda || 2016 -- 2020 || No Diploma</li>
+    <li>Part Time Computer Science @ Avans University of Science Breda || 2022 -- Current Date </li>
+  </ul>
+  <h3>Skills</h3>
+  <p>Rated out of ☆☆☆☆☆</p>
+  <ul>
+    <li>HTML ★★★☆☆</li>
+    <li>CSS ★★★☆☆</li>
+    <li>JavaScript ★★★☆☆</li>
+    <li>Dutch & English ★★★★☆</li>
+    <li>Microsoft Office ★★★★☆</li>
+    <li>Drivers License B ★★★★★</li>
+  </ul>
+  `;
+
+  return cvContent;
 }

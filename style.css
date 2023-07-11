@@ -18,26 +18,26 @@ button {
 }
 
 p {
-    color: #22A39F;
+    color: #F4E0B9;
 }
 
 label {
-    color: #F3AA60;
+    color: #6D8B74;
 }
 
 input {
     border: none; 
     outline: none; 
     background-color: #222222; 
-    color: #22A39F;
+    color: #F4E0B9;
     font-family: 'Anton', sans-serif;
     font-family: 'Roboto', sans-serif;
     font-size: 1.1rem;
-    width: 90%;
+    width: 70%;
 }
 
 div {
-    color: #22A39F;
+    color: #F4E0B9;
 }
 
 ul {
@@ -60,4 +60,18 @@ ul {
 
   div p {
     color: #F4E0B9;
+  }
+
+  textarea {
+    width: 30%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #F4E0B9;
+    border-radius: 4px;
+    background-color: #222222;
+    font-size: 16px;
+    resize: none;
+    color: #F4E0B9;
+    outline: none;
   }

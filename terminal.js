@@ -14,6 +14,9 @@ function executeCommand(userInput) {
     } else if (command === 'cv') {
       const cv = generateCV();
       displayOutput(cv);
+    } else if (command === 'contact') {
+      const contact = contactForm();
+      displayOutput(contact);
     } else {
       displayOutput(`Command not found: ${command}`);
       scrollToBottom();
@@ -29,10 +32,10 @@ function executeCommand(userInput) {
     }
 });
 
-// Focus on the command line automatically, this
-setInterval(function() {
-  commandLine.focus();
-}, 100);
+// Focus on the command line automatically
+//setInterval(function() {
+//  commandLine.focus();
+//}, 100);
 
 function displayOutput(output) {
     // Create a new paragraph element to display the output
@@ -67,30 +70,44 @@ function generateCV() {
 
   <h3>Experience</h3>
   <ul>
-    <li>Stock Clerk @ Albert Heijn Almkerk || 08-08-2015 -- 25-05-2019</li>
-    <li>Internship Information @ Gemeente Altena || 01-02-2020 -- 29-07-2020</li>
-    <li>Production Worker @ The Dutch Nightcrawlers || 01-02-2021 -- 30-09-2021</li>
-    <li>Administrative Assistant @ Idea-X B.V. || 07-02-2022 -- 07-09-2022</li>
-    <li>Production Worker @ The Dutch Nightcrawlers || 12-09-2022 -- Current Date</li>
+    <li>Stock Clerk              @ Albert Heijn Almkerk          || 08-08-2015 -- 25-05-2019</li>
+    <li>Internship Information   @ Gemeente Altena    || 01-02-2020 -- 29-07-2020</li>
+    <li>Production Worker        @ The Dutch Nightcrawlers || 01-02-2021 -- 30-09-2021</li>
+    <li>Administrative Assistant @ Idea-X B.V.      || 07-02-2022 -- 07-09-2022</li>
+    <li>Production Worker        @ The Dutch Nightcrawlers || 12-09-2022 -- Current Date</li>
   </ul>
   <h3>Education</h3> 
   <ul>
-    <li>HAVO @ Altena College || 2011 -- 2016 || Diploma Acquired</li>
-    <li>Business IT & Management @ Avans University of Science Breda || 2016 -- 2020 || No Diploma</li>
-    <li>Part Time Computer Science @ Avans University of Science Breda || 2022 -- Current Date </li>
+    <li>HAVO                        @ Altena College                    || 2011 -- 2016 || Diploma Acquired</li>
+    <li>Business IT & Management    @ Avans University of Science Breda || 2016 -- 2020 || No Diploma</li>
+    <li>Part Time Computer Science  @ Avans University of Science Breda || 2022 -- Current Date </li>
   </ul>
   <h3>Skills</h3>
   <p>Rated out of ☆☆☆☆☆</p>
   <ul>
-    <li>HTML ★★★☆☆</li>
-    <li>CSS ★★★☆☆</li>
-    <li>JavaScript ★★★☆☆</li>
-    <li>Python ★★★☆☆</li>
-    <li>Dutch & English ★★★★☆</li>
-    <li>Microsoft Office ★★★★☆</li>
+    <li>HTML              ★★★☆☆</li>
+    <li>CSS               ★★★☆☆</li>
+    <li>JavaScript        ★★★☆☆</li>
+    <li>Python            ★★★☆☆</li>
+    <li>Dutch & English   ★★★★☆</li>
+    <li>Microsoft Office  ★★★★☆</li>
     <li>Drivers License B ★★★★★</li>
   </ul>
   `;
 
   return cvContent;
+}
+
+function contactForm() {
+  const contactFromContent = `
+  <form>
+    <input type="text" id="fname" name="fullname" placeholder="Your name..">
+    <input type="text" id="email" name="email" placeholder="Your email..">
+    <input type="text" id="subject" name="subject" placeholder="Subject..">
+    <textarea id="message" name="message" placeholder="Write something.."></textarea>
+    <button type="submit" value="Submit">
+  </form>
+  `;
+
+  return contactFromContent;
 }

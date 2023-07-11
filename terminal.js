@@ -66,11 +66,11 @@ function helpMessage() {
   const helpMessageContent = `
   <h1>Here is a list of commands!</h1>
   <ul>
-    <li>Help</li>
-    <li>Clear</li>
-    <li>Welcome</li>
-    <li>CV</li>
-    <li>Contact</li>
+    <li>Help || Shows a list of commands</li>
+    <li>Clear || Clears the terminal</li>
+    <li>Welcome || Shows welcome message</li>
+    <li>CV || Shows Curriculum Vitae</li>
+    <li>Contact || Shows contact form</li>
   </ul>
   `;
   return helpMessageContent;
@@ -117,7 +117,7 @@ function generateCV() {
 
 function contactForm() {
   const contactFromContent = `
-  <form>
+  <form action="/">
     <h1>Contact Form</h1>
     <p>Feel free to contact me!</p>
     <h2>Work in Progress</h2>

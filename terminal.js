@@ -6,7 +6,8 @@ function executeCommand(userInput) {
   
     // Handle different commands based on their names
     if (command === 'help') {
-      displayOutput('This is a help message.'); // Call a function to display the output
+      const help = helpMessage();
+      displayOutput(help); // Call a function to display the output
     } else if (command === 'clear') {
       clearTerminal(); // Call a function to clear the terminal
     } else if (command === 'welcome') {
@@ -61,12 +62,28 @@ function scrollToBottom() {
   outputArea.lastChild.scrollIntoView({ behavior: 'smooth' });
 }
 
+function helpMessage() {
+  const helpMessageContent = `
+  <h1>Here is a list of commands!</h1>
+  <ul>
+    <li>Help</li>
+    <li>Clear</li>
+    <li>Welcome</li>
+    <li>CV</li>
+    <li>Contact</li>
+  </ul>
+  `;
+  return helpMessageContent;
+}
+
 function generateCV() {
   const cvContent = `
   <h1>Curriculum Vitae</h1>
   <h2>Max Neeleman</h2>
-  <h3>06-45669504</h3>
-  <h3>maxneeleman@hotmail.nl</h3>
+  <h4>29-06-1999</h3>
+  <h4>Almkerk, The Netherlands</h3>
+  <h4>06-45669504</h3>
+  <h4>maxneeleman@hotmail.nl</h3>
 
   <h3>Experience</h3>
   <ul>
@@ -101,11 +118,14 @@ function generateCV() {
 function contactForm() {
   const contactFromContent = `
   <form>
+    <h1>Contact Form</h1>
+    <p>Feel free to contact me!</p>
+    <h2>Work in Progress</h2>
     <input type="text" id="fname" name="fullname" placeholder="Your name..">
     <input type="text" id="email" name="email" placeholder="Your email..">
     <input type="text" id="subject" name="subject" placeholder="Subject..">
     <textarea id="message" name="message" placeholder="Write something.."></textarea>
-    <button type="submit" value="Submit">
+    <button type="submit" value="Submit">Submit</button>
   </form>
   `;
 

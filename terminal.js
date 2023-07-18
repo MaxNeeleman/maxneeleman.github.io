@@ -1,5 +1,23 @@
 const outputArea = document.getElementById('output-area');
 const commandLine = document.getElementById('command');
+const datetimeDiv = document.getElementById('datetime');
+
+function getCurrentDateTime() {
+  const now = new Date();
+  const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  const timeOptions = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
+  const formattedDate = now.toLocaleDateString(undefined, dateOptions);
+  const formattedTime = now.toLocaleTimeString(undefined, timeOptions);
+  return `${formattedDate} - ${formattedTime}`;
+}
+
+function updateDateTime() {
+  const currentDateTime = getCurrentDateTime();
+  datetimeDiv.textContent = currentDateTime;
+}
+
+// Update the date and time every second
+setInterval(updateDateTime, 1000);
 
 function executeCommand(userInput) {
     const command = userInput.trim().toLowerCase(); // Remove leading/trailing whitespaces and convert to lowercase

@@ -1,6 +1,8 @@
 const outputArea = document.getElementById('output-area');
 const commandLine = document.getElementById('command');
 
+const commands = ['help', 'clear', 'welcome', 'cv', 'contact', 'projects'];
+
 function executeCommand(userInput) {
     const command = userInput.trim().toLowerCase(); // Remove leading/trailing whitespaces and convert to lowercase
   
@@ -18,19 +20,44 @@ function executeCommand(userInput) {
     } else if (command === 'contact') {
       const contact = contactForm();
       displayOutput(contact);
+    } else if (command === 'projects') {
+      const projects = projectsMessage();
+      displayOutput(projects);
     } else {
       displayOutput(`Command not found: ${command}`);
       scrollToBottom();
   }
 }
 
-  commandLine.addEventListener('keydown', function(event) {
-    if (event.key === 'Enter') {
-        const userInput = event.target.value;
-        event.target.value = '';  // Clear the input field
-        executeCommand(userInput);
-        scrollToBottom();
+commandLine.addEventListener('input', function(event) {
+  // Ignore backspace key events
+  if (event.inputType !== 'deleteContentBackward') {
+    const userInput = event.target.value;
+    const autoCompleteCommand = commands.find(cmd => cmd.startsWith(userInput));
+    if (autoCompleteCommand) {
+      event.target.value = autoCompleteCommand;
+      // Set the cursor position at the end of the input
+      event.target.setSelectionRange(userInput.length, autoCompleteCommand.length);
     }
+  }
+});
+
+commandLine.addEventListener('keydown', function(event) {
+  if (event.key === 'Enter') {
+    const userInput = event.target.value;
+    event.target.value = '';  // Clear the input field
+    executeCommand(userInput);
+    scrollToBottom();
+  } else if (event.key === 'Tab') {
+    event.preventDefault();  // Prevent the default action of the 'Tab' key
+    const userInput = event.target.value;
+    const autoCompleteCommand = commands.find(cmd => cmd.startsWith(userInput));
+    if (autoCompleteCommand) {
+      event.target.value = autoCompleteCommand;
+      // Set the cursor position at the end of the input
+      event.target.setSelectionRange(autoCompleteCommand.length, autoCompleteCommand.length);
+    }
+  }
 });
 
 // Focus on the command line automatically
@@ -82,12 +109,17 @@ function helpMessage() {
     <li>Welcome || Shows welcome message</li>
     <li>CV || Shows Curriculum Vitae</li>
     <li>Contact || Shows contact form</li>
+    <li>Projects || Shows projects</li>
   </ul>
   `;
   return helpMessageContent;
 }
 
 function generateCV() {
+  const currentDate = new Date();
+  const formattedDate = currentDate.getDate() + "-" + (currentDate.getMonth() + 1) + "-" + currentDate.getFullYear();
+  const getFullYear = currentDate.getFullYear();
+
   const cvContent = `
   <h1>Curriculum Vitae</h1>
   <h2>Max Neeleman</h2>
@@ -95,8 +127,7 @@ function generateCV() {
   <ul>
     <li>29-06-1999</li>
     <li>Almkerk, The Netherlands</li>
-    <li>06-45669504</li>
-    <li>maxneeleman@hotmail.nl</li>
+    <li>m.neeleman@proton.me</li>
   </ul>
   <h3>Experience</h3>
   <ul>
@@ -104,13 +135,13 @@ function generateCV() {
     <li>Internship Information   @ Gemeente Altena          || 01-02-2020 -- 29-07-2020</li>
     <li>Production Worker        @ The Dutch Nightcrawlers  || 01-02-2021 -- 30-09-2021</li>
     <li>Administrative Assistant @ Idea-X B.V.              || 07-02-2022 -- 07-09-2022</li>
-    <li>Production Worker        @ The Dutch Nightcrawlers  || 12-09-2022 -- Current Date</li>
+    <li>Production Worker        @ The Dutch Nightcrawlers  || 12-09-2022 -- ${formattedDate} (Currently employed)</li>
   </ul>
   <h3>Education</h3> 
   <ul>
     <li>HAVO                        @ Altena College                    || 2011 -- 2016 || Diploma Acquired</li>
     <li>Business IT & Management    @ Avans University of Science Breda || 2016 -- 2020 || No Diploma</li>
-    <li>Part Time Computer Science  @ Avans University of Science Breda || 2022 -- Current Date </li>
+    <li>Part Time Computer Science  @ Avans University of Science Breda || 2022 -- ${getFullYear} (Currently attending)</li>
   </ul>
   <h3>Skills</h3>
   <p>Rated out of ☆☆☆☆☆</p>
@@ -118,7 +149,9 @@ function generateCV() {
     <li>HTML              ★★★☆☆</li>
     <li>CSS               ★★★☆☆</li>
     <li>JavaScript        ★★★☆☆</li>
-    <li>Python            ★★★☆☆</li>
+    <li>PHP               ★★★☆☆</li>
+    <li>Kotlin            ★★★☆☆</li>
+    <li>Linux             ★★★☆☆</li>
     <li>Dutch & English   ★★★★☆</li>
     <li>Microsoft Office  ★★★★☆</li>
     <li>Drivers License B ★★★★★</li>
@@ -127,6 +160,17 @@ function generateCV() {
 
   return cvContent;
 }
+
+function projectsMessage() {
+  const projectsContent = `
+  <h1>Projects</h1>
+  <h2>Work in Progress</h2>
+  `;
+
+  return projectsContent;
+}
+
+
 
 function contactForm() {
   const contactFromContent = `

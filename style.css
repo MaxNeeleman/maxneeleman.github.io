@@ -26,6 +26,7 @@ button {
 
 p {
     color: #F4E0B9;
+    padding-bottom: 10px;
 }
 
 label {
@@ -56,6 +57,7 @@ ul {
   
   ul li {
     margin: 5px 0;
+    padding-bottom: 5px;
   }
 
   ul li::before {
@@ -97,4 +99,5 @@ ul {
     background: #435B66;
   }
 
+  
 

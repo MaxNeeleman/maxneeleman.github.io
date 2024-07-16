@@ -1,0 +1,36 @@
+﻿@page "/blog/{PostName}"
+@* @inject BlogService BlogService *@
+@inject HttpClient Http
+
+@using Markdig
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Web
+
+<div class="container">
+
+    <div class="blog-post-content">
+        @((MarkupString)_postHtml)
+    </div>
+
+</div>
+@code {
+    [Parameter]
+    public string? PostName { get; set; }
+
+    private MarkupString _postHtml;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            var markdownContent = await Http.GetStringAsync($"Blog/2024/{PostName}.md");
+            var htmlContent = Markdown.ToHtml(markdownContent);
+            _postHtml = new MarkupString(htmlContent);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error loading or converting Markdown file: {ex.Message}");
+            // Optionally, display an error message or a not found message in the UI.
+        }
+    }
+}

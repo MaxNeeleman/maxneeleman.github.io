@@ -1,0 +1,23 @@
+﻿@inherits LayoutComponentBase
+<div class="page">
+    @* <div class="sidebar">
+        <NavMenu />
+    </div> *@
+
+    <div class="container">
+        <main>
+            <div class="top-row px-4">
+                <a class="link-light" href="" target="">neeleman.dev</a>
+                <div style="margin-right: 20px;">
+                    <a href="/blog" class="link-light">Blog</a>
+                    <a href="/cv" class="link-light">CV</a>
+                    <a href="/contact" class="link-light">Contact</a>
+                </div>
+            </div>
+
+            <article class="content px-4">
+                @Body
+            </article>
+        </main>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+﻿@page "/blog"
+@inject NavigationManager NavigationManager
+@inject HttpClient Http
+
+<h1>Blog Posts</h1>
+
+<div class="container">
+    <div class="row">
+    @if (posts != null)
+    {
+        foreach (var post in posts)
+        {
+            <div class="col-md-4">
+                <NavLink href="javascript:void(0)" @onclick="() => NavigateToPost(post.FileName)" class="text-decoration-none text-reset">
+                    <div class="card card-custom">
+                        <div class="card-body">
+                            <h5 class="card-title">@post.Title</h5>
+                            <p class="card-text">@post.Summary</p>
+                        </div>
+                    </div>
+                </NavLink>
+            </div>
+        }
+    }
+    </div>
+</div>
+
+@code {
+    private List<PostManifest>? posts = new List<PostManifest>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        posts = await Http.GetFromJsonAsync<List<PostManifest>>("Blog/2024/posts.json");
+    }
+
+    private void NavigateToPost(string? fileName)
+    {
+        NavigationManager.NavigateTo($"/blog/{fileName}");
+    }
+
+    class PostManifest
+    {
+        public string? Title { get; set; }
+        public string? FileName { get; set; }
+        public string? Summary { get; set; }
+    }
+}

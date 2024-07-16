@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../buildMultiTargeting/maxneeleman.github.io.props" />
+</Project>

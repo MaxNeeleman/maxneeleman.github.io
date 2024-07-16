@@ -1,0 +1,72 @@
+﻿@page "/"
+
+<PageTitle>Home</PageTitle>
+
+<div class="container" style="margin-top: 20px;">
+    <div class="row">
+        <div class="col-md-3">
+           @* <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.pngfind.com%2Fpngs%2Fm%2F610-6104451_image-placeholder-png-user-profile-placeholder-image-png.png&f=1&nofb=1" style="height: 200px; width: 200px; border-radius: 50%; border: 3px solid #3A4E48;"  alt="profile picture"> *@
+            <img src="Images/IMG-20230531-WA0004.jpg" alt="Profile Picture" style="height: 200px; width: 200px; border-radius: 50%; border: 3px solid #3A4E48;">
+        </div>
+        <div class="col-md-6" style="margin-top: 50px;">
+            <h1>My name is <span style="color: #8B9D83">Max Neeleman</span></h1>
+            <h2>And i'm an aspiring <span style="color: #8B9D83">Software Developer</span></h2>
+        </div>
+    </div>
+    <div class=""style="margin-top: 50px;">
+        <h3 class="text-center">I am currently <span style="color: #8B9D83">@age</span> years old, studying computer science at Avans University of Applied Sciences</h3>
+    </div>
+    <div class="row" style="margin-top: 50px;">
+        <h4 class="text-center" style="margin-bottom: 30px;">Take a look at some of the <span style="color: #8B9D83">Projects</span>  i've build!</h4>
+        <div class="col-md-4">
+            <NavLink href="project/test" class="text-decoration-none text-reset">
+                <div class="card card-custom">
+                    <div class="card-body">
+                        <h5 class="card-title">Lorem ipsum</h5>
+                        <p class="card-text">dolor sit amet consectetur adipisicing elit. Non, quod sint optio a numquam
+                            voluptatibus. Quas ullam dolorem amet est quod dolor earum, rem id impedit aspernatur provident
+                            unde illo.</p>
+                    </div>
+                </div>
+            </NavLink>
+        </div>
+        <div class="col-md-4">
+            <NavLink href="project/test1" class="text-decoration-none text-reset">
+                <div class="card card-custom">
+                    <div class="card-body">
+                        <h5 class="card-title">Lorem ipsum</h5>
+                        <p class="card-text">dolor sit amet consectetur adipisicing elit. Non, quod sint optio a numquam
+                            voluptatibus. Quas ullam dolorem amet est quod dolor earum, rem id impedit aspernatur provident
+                            unde illo.</p>
+                    </div>
+                </div>
+            </NavLink>
+        </div>
+        <div class="col-md-4">
+            <NavLink href="project/test2" class="text-decoration-none text-reset">
+                <div class="card card-custom">
+                    <div class="card-body">
+                        <h5 class="card-title">Lorem ipsum</h5>
+                        <p class="card-text">dolor sit amet consectetur adipisicing elit. Non, quod sint optio a numquam
+                            voluptatibus. Quas ullam dolorem amet est quod dolor earum, rem id impedit aspernatur provident
+                            unde illo.</p>
+                    </div>
+                </div>
+            </NavLink>
+        </div>
+    </div>
+</div>
+
+@code {
+    private DateTime birthday = new DateTime(1999, 06, 29);
+    private int age
+    {
+        get
+        {
+            var today = DateTime.Today;
+            var age = today.Year - birthday.Year;
+            if (birthday.Date > today.AddYears(-age)) age--;
+            return age;
+        }
+    }
+}
